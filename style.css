@@ -1,0 +1,174 @@
+:root {
+    --mahidol-blue: #00246B;
+    --mahidol-yellow: #F6A316;
+    --bg-color: #f4f7f6;
+    --text-color: #333333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Anuphan', sans-serif;
+    font-weight: 300;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header {
+    background-color: var(--mahidol-blue);
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid var(--mahidol-yellow);
+}
+
+.header h1 {
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+}
+
+.header p {
+    font-size: 0.9rem;
+    color: #e0e0e0;
+}
+
+form {
+    padding: 20px;
+}
+
+.section-title {
+    font-weight: 500;
+    color: var(--mahidol-blue);
+    border-bottom: 2px solid var(--mahidol-yellow);
+    padding-bottom: 5px;
+    margin: 25px 0 15px;
+    font-size: 1.1rem;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="email"], /* เพิ่มบรรทัดนี้เข้าไปครับ */
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: 'Anuphan', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    background: #f9f9f9;
+    border: 1px dashed #aaa;
+    border-radius: 6px;
+    font-family: 'Anuphan', sans-serif;
+    font-size: 0.9rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--mahidol-blue);
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.half {
+    flex: 1;
+}
+
+.upload-note {
+    font-size: 0.85rem;
+    color: #ff3333;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 100%;
+    background-color: var(--mahidol-blue);
+    color: var(--mahidol-yellow);
+    border: none;
+    padding: 15px;
+    font-size: 1.2rem;
+    font-family: 'Anuphan', sans-serif;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #001a4d;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    text-align: center;
+}
+
+.spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--mahidol-blue);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+    .form-row { flex-direction: column; gap: 0; }
+}

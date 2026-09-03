@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ฟอร์มรายงานสรุปผลการเข้ารับการฝึกอบรม</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@300;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>รายงานสรุปผลการเข้ารับการฝึกอบรม</h1>
+            <p>กรุณากรอกข้อมูลให้ครบถ้วน</p>
+        </div>
+        
+        <form id="trainingForm">
+            
+            <!-- ส่วนที่ 1: ตรวจสอบสิทธิ์ (แสดงตลอด) -->
+            <div class="section-title">ตรวจสอบสิทธิ์เข้าใช้งาน</div>
+            <div class="form-row" style="align-items: flex-end;">
+                <div class="form-group" style="flex: 1; margin-bottom: 0;">
+                    <label>ที่อยู่อีเมลของคุณ</label>
+                    <input type="email" id="emailInput" name="email" placeholder="ระบุอีเมลเพื่อตรวจสอบ" required>
+                </div>
+                <div class="form-group" style="margin-bottom: 0;">
+                    <button type="button" id="verifyBtn" style="margin-top: 0; padding: 10px 20px; font-size: 1rem;">ตรวจสอบ</button>
+                </div>
+            </div>
+            <p id="emailStatus" style="font-size: 0.9rem; margin-top: 5px; margin-bottom: 15px;"></p>
+
+            <!-- ส่วนที่ 2: ฟอร์มหลัก (จะถูกซ่อนไว้ตอนแรก และแสดงเมื่อตรวจสอบผ่าน) -->
+            <div id="mainFormArea" style="display: none;">
+                
+                <div class="section-title">ข้อมูลทั่วไป</div>
+                
+                <div class="form-group">
+                    <label>ชื่อ-สกุล</label>
+                    <input type="text" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label>ตำแหน่ง</label>
+                    <input type="text" name="position" required>
+                </div>
+               
+                <div class="form-group">
+                    <label>ส่วนงาน</label>
+                    <select name="department" required>
+                        <option value="">-- เลือกส่วนงาน --</option>
+                        <option value="งานจราจรและความปลอดภัย">งานจราจรและความปลอดภัย</option>
+                        <option value="งานบริหารและพัฒนาระบบ">งานบริหารและพัฒนาระบบ</option>
+                        <option value="งานบริหารอาคารมหิดลสิทธาคาร">งานบริหารอาคารมหิดลสิทธาคาร</option>
+                        <option value="งานพัฒนาเพื่อความยั่งยืน">งานพัฒนาเพื่อความยั่งยืน</option>
+                        <option value="งานภูมิทัศน์และสิ่งแวดล้อม">งานภูมิทัศน์และสิ่งแวดล้อม</option>
+                        <option value="งานสาธารณูปโภคและระบบอาคาร">งานสาธารณูปโภคและระบบอาคาร</option>
+                        <option value="งานออกแบบและผังแม่บท">งานออกแบบและผังแม่บท</option>
+                    </select>
+                </div>
+
+                <!-- ส่วนที่ 2: ข้อมูลหลักสูตร -->
+                <div class="section-title">ข้อมูลการฝึกอบรม</div>
+                <div class="form-group">
+                    <label>หลักสูตร</label>
+                    <input type="text" name="course">
+                </div>
+                <div class="form-group">
+                    <label>ชื่อหลักสูตรที่เข้าเรียน</label>
+                    <input type="text" name="course_attended">
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>วันที่เริ่ม</label>
+                        <input type="date" name="start_date">
+                    </div>
+                    <div class="form-group half">
+                        <label>วันที่สิ้นสุด</label>
+                        <input type="date" name="end_date">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>วันที่สำเร็จการศึกษา/อบรม</label>
+                        <input type="date" name="completion_date">
+                    </div>
+                    <div class="form-group half">
+                        <label>ระยะเวลาที่เรียน (ชั่วโมง/วัน)</label>
+                        <input type="text" name="duration">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group half">
+                        <label>เวลาที่เข้าเรียน (%)</label>
+                        <input type="number" name="attendance_percent" min="0" max="100">
+                    </div>
+                    <div class="form-group half">
+                        <label>สถานะ</label>
+                        <select name="status">
+                            <option value="">เลือกสถานะ</option>
+                            <option value="สำเร็จ">สำเร็จ</option>
+                            <option value="ไม่สำเร็จ">ไม่สำเร็จ</option>
+                            <option value="กำลังศึกษา">กำลังศึกษา</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- ส่วนที่ 3: การประเมินผล -->
+                <div class="section-title">การประเมินและการนำไปใช้</div>
+                <div class="form-group">
+                    <label>1. ท่านมีแผนจะนำความรู้ไปประยุกต์ใช้ในการทำงานอย่างไร</label>
+                    <textarea name="plan_to_apply" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>2. เนื้อหาและหัวข้อวิชาตรงกับความต้องการของท่าน (ระบุความเห็น)</label>
+                    <textarea name="content_match" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>3.1 ประโยชน์ที่ได้รับ (รูปแบบการจัดอบรม)</label>
+                    <textarea name="benefits_3_1" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>3.2 ประโยชน์ที่ได้รับจากการฝึกอบรม (ต่อหน่วยงาน)</label>
+                    <textarea name="benefits_3_2" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>4. ผลจากการนำความรู้ ทักษะไปใช้ในการทำงาน</label>
+                    <textarea name="results" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>5. ปัญหาและอุปสรรคที่คาดว่าจะเกิดขึ้น</label>
+                    <textarea name="problems" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>6. ความคาดหวัง/ข้อเสนอแนะ</label>
+                    <textarea name="expectations" rows="2"></textarea>
+                </div>
+
+                <!-- ส่วนที่ 4: อัปโหลดไฟล์ -->
+                <div class="section-title">อัปโหลดเอกสารแนบ</div>
+                <p class="upload-note">* รองรับไฟล์รูปภาพ (JPG, PNG) หรือ PDF (ขนาดไม่ควรเกิน 5MB)</p>
+                
+                <div class="form-group">
+                    <label>ไฟล์ใบ Certificate</label>
+                    <input type="file" id="certFile" accept="image/jpeg, image/png, application/pdf">
+                </div>
+                <div class="form-group">
+                    <label>ไฟล์เอกสารประกอบเพิ่มเติม (ถ้ามี)</label>
+                    <input type="file" id="extraFile" accept="image/jpeg, image/png, application/pdf">
+                </div>
+
+                <button type="submit" id="submitBtn">บันทึกข้อมูล</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>กำลังอัปโหลดไฟล์และบันทึกข้อมูล<br>กรุณารอสักครู่...</p>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
