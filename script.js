@@ -99,8 +99,12 @@ document.getElementById('trainingForm').addEventListener('submit', function(e) {
     const certFile = document.getElementById('certFile').files[0];
     const extraFile = document.getElementById('extraFile').files[0];
 
-    // 2. แสดงข้อความสำเร็จทันที! โดยไม่ต้องรอ
-    alert('ระบบได้รับข้อมูลแล้ว!\n\nข้อมูลและไฟล์ของคุณกำลังถูกอัปโหลดอยู่เบื้องหลังและจะส่งไปทางอีเมล\n\n(ข้อควรระวัง: กรุณาอย่าเพิ่งปิดหน้าเว็บทันที ให้เปิดทิ้งไว้สักครู่)');
+    // 2. แสดงข้อความสำเร็จทันที! ด้วย SweetAlert2 (แสดงข้อความได้ครบถ้วน)
+       Swal.fire({
+           title: 'ระบบได้รับข้อมูลแล้ว!',
+          text: 'ข้อมูลและไฟล์ของคุณกำลังถูกอัปโหลดอยู่เบื้องหลังและจะส่งไปทางอีเมล (ข้อควรระวัง: กรุณาอย่าเพิ่งปิดหน้าเว็บทันที ให้เปิดทิ้งไว้สักครู่)',
+          icon: 'success',
+         confirmButtonText: 'ตกลง'
     
     // รีเซ็ตฟอร์มให้ว่างทันที
     form.reset();
